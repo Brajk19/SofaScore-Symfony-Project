@@ -64,4 +64,6 @@ abstract class Competitor extends AbstractPrimaryEntity
 
         return $this;
     }
+
+    abstract function getType();
 }

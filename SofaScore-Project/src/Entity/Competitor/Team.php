@@ -12,26 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Team extends Competitor
 {
 
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    private string $type = "team";
-
-    /**
-     * @return string|null
-     */
-    public function getType(): ?string
+    public function getType(): string
     {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType(string $type): void
-    {
-        //
-        $this->type = $type;
+        return "team";
     }
 }
