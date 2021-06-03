@@ -5,9 +5,6 @@ namespace App\Service\Helper;
 class MatchStatusHelper
 {
 
-    /*
-     * nije počela, 1. poluvrijeme, 2. poluvrijeme, pauza, 1.-4. četvrtina, otkazana, završena, produžeci (košarka)
-     */
     private const STATUS_CODE = [
         '0' => 'Not started',
         '1' => '1st half',

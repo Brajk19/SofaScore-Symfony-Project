@@ -1,6 +1,6 @@
 <?php
 
-namespace exception;
+namespace App\Exception;
 
 class MatchFinishedException extends \Exception {
     public function __construct(){

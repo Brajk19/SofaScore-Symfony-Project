@@ -3,6 +3,7 @@
 namespace App\Repository\Competitor;
 
 use App\Entity\Competitor\Competitor;
+use App\Entity\Sport\Sport;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,17 @@ class CompetitorRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Competitor::class);
+    }
+
+    public function competitorCheck(string $name, Sport $sport): array
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.name = :val1')
+            ->setParameter('val1', $name)
+            ->andWhere('c.sport = :val2')
+            ->setParameter('val2', $sport)
+            ->getQuery()
+            ->getResult();
     }
 
     // /**

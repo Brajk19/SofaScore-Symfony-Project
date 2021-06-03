@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1d88516-c075-4886-84bd-3e44ebb9b066" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Exception/MatchFinishedException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/InitDatabaseCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/InitSportEventsCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Service/Helper/DummyDataHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Competitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Competitor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Pair.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Pair.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Person.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competitor/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Score/Score.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Score/Score.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Controller/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/AbstractPrimaryEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/AbstractPrimaryEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Season/Season.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Season/Season.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Exception/MatchFinishedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Exception/MatchFinishedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Category/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Category/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Competition/CompetitionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Competition/CompetitionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Competitor/CompetitorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Competitor/CompetitorRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Sport/SportRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Sport/SportRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Service/Helper/MatchStatusHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Service/Helper/MatchStatusHelper.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +27,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1tMM68fg63Y4HuT6pTXdvncSRLe" />
   <component name="ProjectLevelVcsManager">
@@ -35,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/dz8" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -54,7 +68,8 @@
       <updated>1622574327509</updated>
       <workItem from="1622574329306" duration="8999000" />
       <workItem from="1622621361927" duration="23812000" />
-      <workItem from="1622707739072" duration="3312000" />
+      <workItem from="1622707739072" duration="4501000" />
+      <workItem from="1622725418136" duration="20504000" />
     </task>
     <servers />
   </component>

@@ -3,8 +3,8 @@
 namespace App\Entity\Season;
 
 use App\Entity\Competition\Competition;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 
 /**

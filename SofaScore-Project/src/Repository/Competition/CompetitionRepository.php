@@ -2,6 +2,7 @@
 
 namespace App\Repository\Competition;
 
+use App\Entity\Category\Category;
 use App\Entity\Competition\Competition;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,17 @@ class CompetitionRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Competition::class);
+    }
+
+    public function competitionCheck(string $competitionName, Category $category): array
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.name = :val1')
+            ->setParameter('val1', $competitionName)
+            ->andWhere('c.category = :val2')
+            ->setParameter('val2', $category)
+            ->getQuery()
+            ->getResult();
     }
 
     // /**

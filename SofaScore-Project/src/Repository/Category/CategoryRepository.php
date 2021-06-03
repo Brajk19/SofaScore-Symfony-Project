@@ -3,6 +3,7 @@
 namespace App\Repository\Category;
 
 use App\Entity\Category\Category;
+use App\Entity\Sport\Sport;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,24 @@ class CategoryRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Category::class);
+    }
+
+    /**
+     * @param string $categoryName
+     * @param Sport $sport
+     * @return array
+     * Returns array containing Category if category with given name and sport exists in database.
+     * Returns empty array otherwise.
+     */
+    public function categoryCheck(string $categoryName, Sport $sport): array
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.name = :val1')
+            ->setParameter('val1', $categoryName)
+            ->andWhere('c.sport = :val2')
+            ->setParameter('val2', $sport)
+            ->getQuery()
+            ->getResult();
     }
 
     // /**
