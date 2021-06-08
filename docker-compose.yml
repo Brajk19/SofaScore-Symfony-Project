@@ -4,6 +4,10 @@
 version: "3.1"
 services:
 
+    redis:
+      image: redis:alpine
+      container_name: sofascore-project-redis
+
     postgres:
       image: postgres:11.1-alpine
       container_name: sofascore-project-postgres
@@ -13,7 +17,7 @@ services:
       environment:
         - POSTGRES_USER=root
         - POSTGRES_PASSWORD=root
-        - POSTGRES_DB=SofaScore
+        - POSTGRES_DB=sofascore
       ports:
         - "8892:5432"
 
@@ -34,4 +38,3 @@ services:
       volumes:
         - ./SofaScore-Project/:/var/www/SofaScore-Project
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
-

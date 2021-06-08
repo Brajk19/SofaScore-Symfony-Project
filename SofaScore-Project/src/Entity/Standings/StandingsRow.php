@@ -7,13 +7,14 @@ namespace App\Entity\Standings;
 use App\Entity\AbstractPrimaryEntity;
 use App\Entity\Competitor\Competitor;
 use Doctrine\ORM\Mapping as ORM;
+use SGH\Comparable\Comparable;
 
 /**
  * Class Standings
  * @ORM\Entity(repositoryClass="App\Repository\Standings\StandingsRowRepository")
  * @package App\Entity\Standings
  */
-class StandingsRow extends AbstractPrimaryEntity
+class StandingsRow extends AbstractPrimaryEntity  implements Comparable
 {
 
     public function __construct()
@@ -115,6 +116,15 @@ class StandingsRow extends AbstractPrimaryEntity
     public function setStandings(Standings $standings): void
     {
         $this->standings = $standings;
+
+        $sportName = $standings->getSeason()->getCompetition()->getCategory()->getSport()->getName();
+        if($sportName === "Football"){
+            $this->setDraws(0);
+            $this->setPoints(0);
+        }
+        else if($sportName === "Basketball"){
+            $this->setWinPercentage(0);
+        }
     }
 
     /**
@@ -243,6 +253,38 @@ class StandingsRow extends AbstractPrimaryEntity
     public function setWinPercentage(?float $winPercentage): void
     {
         $this->winPercentage = $winPercentage;
+    }
+
+
+
+    public function compareTo($object): int
+    {
+        $sport = $this->getStandings()->getSeason()->getCompetition()->getCategory()->getSport();
+
+        if($sport->getName() === "Football"){
+            if($this->getPoints() > $object->getPoints()) return 1;
+            else if($this->getPoints() < $object->getPoints()) return -1;
+            else {
+                $row1goalDifference = $this->getScoresFor() - $this->getScoresAgainst();
+                $row2goalDifference = $object->getScoresFor() - $object->getScoresAgainst();
+
+                if($row1goalDifference > $row2goalDifference) return 1;
+                else if($row1goalDifference < $row2goalDifference) return -1;
+                else return 0;
+            }
+        }
+        else{
+            if($this->getWins() > $object->getWins()) return 1;
+            else if($this->getWins() < $object->getWins()) return -1;
+            else{
+                $row1difference = $this->getScoresFor() - $this->getScoresAgainst();
+                $row2difference = $object->getScoresFor() - $object->getScoresAgainst();
+
+                if($row1difference > $row2difference) return 1;
+                else if($row1difference < $row2difference) return -1;
+                else return 0;
+            }
+        }
     }
 
 

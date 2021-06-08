@@ -33,6 +33,7 @@ You'll need to configure your application to use any services you enabled:
 Service|Hostname|Port number
 ------|---------|-----------
 php-fpm|php-fpm|9000
+Redis|redis|6379 (default)
 
 # Docker compose cheatsheet #
 

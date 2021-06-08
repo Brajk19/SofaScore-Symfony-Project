@@ -39,5 +39,10 @@ class Category extends AbstractPrimaryEntity
         $this->sport = $sport;
     }
 
+    public function __toString(): string
+    {
+        return $this->getName();
+    }
+
 
 }

@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Pick competition
+{% endblock %}
+
+{% block body %}
+    <br>
+
+    {% include "saruman.html.twig" with {entity: season} %}
+
+    <br><br>
+
+    <div class="ptable">
+        <h1 class="headin">Standings</h1>
+
+        <table>
+            <tr class="col">
+                <th>#</th>
+                <th>Team</th>
+                <th>Played</th>
+                <th>Wins</th>
+                <th>Draws</th>
+                <th>Losses</th>
+                <th>Goal difference</th>
+                <th>Points</th>
+            </tr>
+
+
+            {% set i = 1 %}
+            {% for row in rows %}
+
+                {% if(i <= 4) %}
+                    <tr class="wpos">
+                {% else %}
+                    <tr class="pos">
+                {% endif %}
+
+                <td>{{ i }}</td>
+                <td>{{ row.competitor.name }}</td>
+                <td>{{ row.matches}}</td>
+                <td>{{ row.wins }}</td>
+                <td>{{ row.draws }}</td>
+                <td>{{ row.losses }}</td>
+                <td>{{ row.scoresFor - row.scoresAgainst}}</td>
+                <td>{{ row.points }}</td>
+
+                </tr>
+
+                {% set i = i + 1 %}
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

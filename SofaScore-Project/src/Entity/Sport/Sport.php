@@ -15,4 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Sport extends AbstractPrimaryEntity
 {
 
+    public function __toString(): string
+    {
+        return $this->getName();
+    }
 }

@@ -7,6 +7,10 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="{{ asset("css/buttons.css") }}">
+            <link rel="stylesheet" href="{{ asset("css/standings.css") }}">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +18,14 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <br>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Super Duper Sports League</h2>
+            </div>
+        </div>
+        <br>
+
+        {% block body %} {% endblock %}
     </body>
 </html>

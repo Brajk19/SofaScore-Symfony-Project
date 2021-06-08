@@ -5,6 +5,7 @@ namespace App\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class AbstractPrimaryEntity
@@ -15,6 +16,7 @@ class AbstractPrimaryEntity
      * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("common")
      * @var int
      */
     protected int $id;
@@ -70,6 +72,6 @@ class AbstractPrimaryEntity
         //automatically set - depends on name
 
         $slugger = new AsciiSlugger();
-        $this->slug = $slugger->slug($this->getName());
+        $this->slug = strtolower($slugger->slug($this->getName()));
     }
 }

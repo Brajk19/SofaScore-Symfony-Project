@@ -1,1 +1,0 @@
-# SofaScore-Symfony-Project

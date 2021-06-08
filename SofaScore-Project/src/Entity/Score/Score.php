@@ -3,7 +3,6 @@
 namespace App\Entity\Score;
 
 use Doctrine\ORM\Mapping as ORM;
-use exception\MatchFinishedException;
 
 /**
  * Class Score
@@ -19,12 +18,6 @@ class Score
      */
     private array $score;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private int $currentPeriod;
-
 
     /**
      * @ORM\Column(type="boolean")
@@ -35,7 +28,6 @@ class Score
     public function __construct(int $numberOfMatchPeriods)
     {
         $this->score = [];
-        $this->currentPeriod = 0;   //match hasn't started yet
         $this->matchFinished = false;
 
         for($i = 1; $i <= $numberOfMatchPeriods; $i++){
@@ -43,35 +35,6 @@ class Score
         }
     }
 
-    /**
-     * Switches to next period of a match.
-     * @return bool
-     * Returns false if match has ended.
-     * Returns true otherwise.
-     * @throws MatchFinishedException if match is already concluded.
-     */
-    public function nextPeriod(): bool {
-        if($this->matchFinished){
-            throw new MatchFinishedException();
-        }
-
-        $this->currentPeriod++;
-
-        if(!array_key_exists($this->currentPeriod, $this->score)){
-            $this->endMatch();
-            return false;
-        }
-
-        $this->setScore(0);
-        return true;
-    }
-
-    public function startMatch(): void
-    {
-        if($this->currentPeriod === 0) {
-            $this->currentPeriod = 1;
-        }
-    }
 
     public function endMatch(): void
     {
@@ -80,27 +43,24 @@ class Score
 
     public function startOvertime(): void
     {
-        $this->currentPeriod++;
-        $this->score[$this->currentPeriod] = 0;
+        $this->score[count($this->score) + 1] = 0;
     }
 
-    public function setScore(int $score): void
+
+    public function setOvertime(int $score): void
     {
-        $this->score[$this->currentPeriod] = $score;
+        $this->score[count($this->score)] = $score;
     }
 
-    public function increaseScore(int $increaseBy): void
+    public function setScore(int $period, int $score): void
     {
-        $this->score[$this->currentPeriod] += $increaseBy;
+        $this->score[$period] = $score;
     }
+
 
     public function getScore(): array
     {
         return $this->score;
     }
 
-    public function getCurrentPeriodScore(): int
-    {
-        return $this->score[$this->currentPeriod];
-    }
 }

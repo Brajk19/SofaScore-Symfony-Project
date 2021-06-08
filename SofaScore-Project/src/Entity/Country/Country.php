@@ -53,6 +53,7 @@ class Country
         }
 
         $country = (new ISO3166\ISO3166)->alpha2($this->getIsoAlpha2());
+
         return $country["name"];
     }
 

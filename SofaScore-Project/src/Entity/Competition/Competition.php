@@ -57,5 +57,9 @@ class Competition extends \App\Entity\AbstractPrimaryEntity
         $this->roundRobinMatches = $roundRobinMatches;
     }
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
 }

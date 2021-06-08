@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Pick sport
+{% endblock %}
+
+{% block body %}
+    <br>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 style="font-size: small">Pick your poison</h2>
+        </div>
+    </div>
+
+    <div style="margin: auto">
+        {% for sport in sports %}
+            <div style="margin-left: 30%; margin-right: 30%">
+                <a href="{{ path("category", {sportSlug: sport.slug}) }}" class="btn btn-sm animated-button victoria-three">
+                    {{ sport.name }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

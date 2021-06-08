@@ -231,6 +231,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "sgh/comparable": {
+        "version": "v1.1.1"
+    },
     "symfony/asset": {
         "version": "v5.3.0"
     },
@@ -617,6 +620,9 @@
     },
     "twig/twig": {
         "version": "v3.3.2"
+    },
+    "verot/class.upload.php": {
+        "version": "2.1.0"
     },
     "webmozart/assert": {
         "version": "1.10.0"

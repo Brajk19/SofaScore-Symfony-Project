@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Pick competition
+{% endblock %}
+
+{% block body %}
+    <br>
+
+    {% include "saruman.html.twig" with {entity: competition} %}
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 style="font-size: small">Choose season</h2>
+        </div>
+    </div>
+
+    <div style="margin: auto">
+        {% for season in seasons %}
+            <div style="margin-left: 30%; margin-right: 30%">
+                <a href="{{ path("standingsTotal", {sportSlug : sport.slug, categorySlug: category.slug,
+                                                    competitionSlug: competition.slug, seasonSlug: season.slug}) }}"
+                   class="btn btn-sm animated-button victoria-three">
+                    {{ season.name }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

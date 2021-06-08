@@ -30,24 +30,19 @@ class TestController extends AbstractController
 
         $country->setIsoAlpha2("HR");
 
-        echo $country->getName();
-
-        $sport = new Sport();
-        $sport->setName("australian football");
-        $sport->setId(82);
-
-        $team = new Team();
-        $team->setName("Super Duper Team");
-        $team->setCountry(new Country("AQ"));
-        $team->setSport($sport);
-        print_r($team);
+        return $this->render("pickSport.html.twig");
+        //return $this->render("test.html.twig", ["title" => "test", "message" => $country->getName()]);
+    }
 
 
+    /**
+     * @Route("/2/{ht}", name="test2")
+     * @param string $ht
+     */
+    public function test2(string $ht): void
+    {
+        echo "uspia si brate $ht";
 
-         // var_dump(TeamNameHelper::getRandomTeams(10));
-
-
-        return $this->render("test.html.twig", ["title" => "test", "message" => $country->getName()]);
     }
 
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "373d40c7ac7a25ff03a733f5323b2479",
+    "content-hash": "4e98622de00c0f388876b048c7ef8d66",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2420,6 +2420,56 @@
                 "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v6.1.5"
             },
             "time": "2021-05-31T10:40:46+00:00"
+        },
+        {
+            "name": "sgh/comparable",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmengler/Comparator-Tools.git",
+                "reference": "0eba8cfb82e057e8e2acee0d0576c0d86876573f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmengler/Comparator-Tools/zipball/0eba8cfb82e057e8e2acee0d0576c0d86876573f",
+                "reference": "0eba8cfb82e057e8e2acee0d0576c0d86876573f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SGH\\Comparable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Schmengler",
+                    "email": "fschmengler@sgh-it.eu",
+                    "homepage": "http://www.schmengler-se.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides Comparable and Comparator interfaces and methods to sort and compare objects based on these.",
+            "homepage": "https://github.com/schmengler/Comparator-Tools",
+            "keywords": [
+                "comparable",
+                "comparator"
+            ],
+            "support": {
+                "issues": "https://github.com/schmengler/Comparator-Tools/issues",
+                "source": "https://github.com/schmengler/Comparator-Tools/tree/development"
+            },
+            "time": "2015-04-06T10:41:12+00:00"
         },
         {
             "name": "symfony/asset",
@@ -7789,6 +7839,52 @@
                 }
             ],
             "time": "2021-05-16T12:14:13+00:00"
+        },
+        {
+            "name": "verot/class.upload.php",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/verot/class.upload.php.git",
+                "reference": "4d9aae875245948d21e42ade332fb45f897f28bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verot/class.upload.php/zipball/4d9aae875245948d21e42ade332fb45f897f28bb",
+                "reference": "4d9aae875245948d21e42ade332fb45f897f28bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/class.upload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Colin Verot",
+                    "email": "colin@verot.net"
+                }
+            ],
+            "description": "This PHP class uploads files and manipulates images very easily.",
+            "homepage": "http://www.verot.net/php_class_upload.htm",
+            "keywords": [
+                "gd",
+                "upload"
+            ],
+            "support": {
+                "email": "colin@verot.net",
+                "issues": "https://github.com/verot/class.upload.php/issues",
+                "source": "https://github.com/verot/class.upload.php/tree/2.1.0"
+            },
+            "time": "2020-12-13T22:26:17+00:00"
         },
         {
             "name": "webmozart/assert",

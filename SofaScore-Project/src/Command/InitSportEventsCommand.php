@@ -8,11 +8,14 @@ use App\Entity\Category\Category;
 use App\Entity\Competition\Competition;
 use App\Entity\Competitor\Competitor;
 use App\Entity\Competitor\Team;
+use App\Entity\Match\BasketballMatch;
+use App\Entity\Match\FootballMatch;
 use App\Entity\Season\Season;
 use App\Entity\Sport\Sport;
 use App\Entity\Standings\Standings;
 use App\Entity\Standings\StandingsRow;
 use App\Service\Helper\DummyDataHelper;
+use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -63,7 +66,9 @@ class InitSportEventsCommand extends Command
 
 
         //choosing competitors (teams)
-        $teamNames = DummyDataHelper::getRandomCompetitorNames(rand(10, 16));
+        $numberOfTeams = rand(10, 16);
+
+        $teamNames = DummyDataHelper::getRandomCompetitorNames($numberOfTeams);
         $output->writeln("\nTeams: ");
         $competitors = [];
         foreach ($teamNames as $teamName){
@@ -113,7 +118,97 @@ class InitSportEventsCommand extends Command
 
 
         //setting up matches
-        //TODO
+        $roundsTemp = array_fill(0, 100, []); //written representation of all matches by rounds
+
+        for($rr = 0; $rr < $competition->getRoundRobinMatches(); $rr++){
+            for($i = 0; $i < count($competitors); $i++){
+                for($j = $i + 1; $j < count($competitors); $j++){
+                    $stringMatch = "$i $j";
+
+                    for($index = 0; $index < count($roundsTemp); $index++){
+                        $found = false;
+                        for($k = 0; $k < count($roundsTemp[$index]); $k++){
+                            $arr = explode(" ", $roundsTemp[$index][$k]);
+                            if(in_array(strval($i), $arr) || in_array(strval($j), $arr)){
+                                $found = true;
+                                break;
+                            }
+                        }
+
+                        if(!$found){
+                            $roundsTemp[$index][] = $stringMatch;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        $rounds = [];
+        foreach ($roundsTemp as $arrRound){
+            if(empty($arrRound)){
+                break;
+            }
+            else{
+                $rounds[] = $arrRound;
+            }
+        }
+        shuffle($rounds);
+
+
+        //setting up date and time of every round
+        //there has to be at least 2 days between two rounds (checkDifference())
+        $startMinutes = [0, 15, 30, 45];
+        $numberOfRounds = count($rounds);
+
+        $roundTimes = [$seasonStart, $seasonEnd];
+        while(count($roundTimes) < $numberOfRounds){
+            shuffle($startMinutes);
+
+            $time = new DateTime();
+            $time->setDate($year, rand(1, 12), rand(1, 28));
+            $time->setTime(rand(13, 21), $startMinutes[0]);
+
+            if($time > $seasonStart && $time < $seasonEnd){
+                $valid = true;
+
+                foreach($roundTimes as $t){
+                    if(!$this->checkDifference($time->diff($t, true))){
+                        $valid = false;
+                        break;
+                    }
+
+                }
+
+                if($valid){
+                    $roundTimes[] = $time;
+                }
+            }
+        }
+
+        $output->writeln("\nNumber of rounds: " . count($roundTimes));
+        sort($roundTimes);
+        for ($i = 0; $i < count($roundTimes); $i++){
+            $output->writeln("Round #" . strval($i + 1) . ": " . $roundTimes[$i]->format("H:i  d. F Y."));
+        }
+
+
+        for($i = 0; $i < $numberOfRounds; $i++){
+            $matchTime = $roundTimes[$i];
+
+            foreach ($rounds[$i] as $match){
+                $teams = explode(" ", $match);
+                shuffle($teams);
+
+                $home = $competitors[intval($teams[0])];
+                $away = $competitors[intval($teams[1])];
+
+                $this->addNewMatch($home, $away, $matchTime, $competition, $season);
+
+            }
+        }
+
+        $output->writeln(["Matches generated.", "Done."]);
         return Command::SUCCESS;
     }
 
@@ -202,4 +297,44 @@ class InitSportEventsCommand extends Command
         return $sr;
     }
 
+
+    /**
+     * @param DateInterval $d
+     * @return bool
+     *
+     */
+    private function checkDifference(DateInterval $d): bool
+    {
+        if($d->y === 0 && $d->m === 0 && $d->d < 2){
+            return false;
+        }
+
+        return true;
+    }
+
+    private function addNewMatch(Competitor $home, Competitor $away, DateTime $startTime, Competition $competition,
+                                 Season $season): void
+    {
+
+        $m = null;
+        switch ($home->getSport()->getName()){
+            case "Football":
+                $m = new FootballMatch();
+                break;
+
+            case "Basketball":
+                $m = new BasketballMatch();
+                break;
+        }
+
+        $m->setName("{$home->getName()} - {$away->getName()} ({$competition->getName()} {$season->getName()})");
+        $m->setHomeCompetitor($home);
+        $m->setAwayCompetitor($away);
+        $m-> setSeason($season);
+        $m->setStartTime($startTime);
+        $m->setCompetition($competition);
+
+        $this->entityManager->persist($m);
+        $this->entityManager->flush();
+    }
 }

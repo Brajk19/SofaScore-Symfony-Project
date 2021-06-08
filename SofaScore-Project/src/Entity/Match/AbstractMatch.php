@@ -8,8 +8,8 @@ use App\Entity\Competition\Competition;
 use App\Entity\Competitor\Competitor;
 use App\Entity\Score\Score;
 use App\Entity\Season\Season;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Class Competitor
@@ -76,16 +76,22 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
     private Score $awayScore;
 
     /**
-     * @ORM\Column(type="integer")
-     * @var int
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int|null
+     * null - match not finished,
+     * 1 - home,
+     * 2 - away,
+     * 3 - tie
      */
-    private int $winnerCode;
+    private ?int $winnerCode;
 
 
     public function __construct(int $matchIntervals)
     {
         $this->homeScore = new Score($matchIntervals);
         $this->awayScore = new Score($matchIntervals);
+        $this->setStatusCode(0);
+        $this->setWinnerCode(-1);
     }
 
     /**
@@ -193,11 +199,12 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
     }
 
     /**
-     * @param Score $homeScore
+     * @param int $period
+     * @param int $homeScore
      */
-    public function setHomeScore(Score $homeScore): void
+    public function setHomeScore(int $period, int $homeScore): void
     {
-        $this->homeScore = $homeScore;
+        $this->homeScore->setScore($period, $homeScore);
     }
 
     /**
@@ -209,11 +216,12 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
     }
 
     /**
-     * @param Score $awayScore
+     * @param int $period
+     * @param int $awayScore
      */
-    public function setAwayScore(Score $awayScore): void
+    public function setAwayScore(int $period, int $awayScore): void
     {
-        $this->awayScore = $awayScore;
+        $this->awayScore->setScore($period, $awayScore);
     }
 
     /**
@@ -230,6 +238,13 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
     public function setWinnerCode(int $winnerCode): void
     {
         $this->winnerCode = $winnerCode;
+    }
+
+    public function finishMatch(): void
+    {
+        $this->homeScore->endMatch();
+        $this->awayScore->endMatch();
+        $this->setStatusCode(9);
     }
 
 

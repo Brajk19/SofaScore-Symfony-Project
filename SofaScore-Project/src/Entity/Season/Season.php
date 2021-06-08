@@ -2,6 +2,7 @@
 
 namespace App\Entity\Season;
 
+use App\Entity\AbstractPrimaryEntity;
 use App\Entity\Competition\Competition;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\Season\SeasonRepository")
  * Class Season
  */
-class Season extends \App\Entity\AbstractPrimaryEntity
+class Season extends AbstractPrimaryEntity
 {
 
     /**
@@ -79,6 +80,11 @@ class Season extends \App\Entity\AbstractPrimaryEntity
     public function setCompetition(Competition $competition): void
     {
         $this->competition = $competition;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 
 
