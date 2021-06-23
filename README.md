@@ -10,8 +10,9 @@
   6. Run `composer install`
   7. Run `apt-get update` and `apt-get install php7.4-gd` 
   8. Stop docker container "sofascore-symfony-project" in Docker Dekstop application and then repeat step 4.
-  9. Run `php bin/console doctrine:schema:update --dump-sql` and copy all SQL queries to your PostgreSQL manager/IDE (e.g. DataGrip)
-  10. Run `php bin/console init:database` and you are all set.
+  9. Connect your IDE with database (port: 8892, username: root, password: root, name: sofascore), [example](https://i.imgur.com/MMuMFdj.png)
+  10. Run `php bin/console doctrine:schema:update --dump-sql` and copy all SQL queries to your PostgreSQL IDE (e.g. DataGrip)
+  11. Run `php bin/console init:database` and you are all set.
   
   
 #### Next commands are not necessary but are very useful:
