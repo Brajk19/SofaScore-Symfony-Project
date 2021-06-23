@@ -7,9 +7,10 @@
   3. Open Windows Powershell (or other similar tool)
   4. Position yourself in repository folder and run `docker compose up -d`
   5. Run `docker compose exec php-fpm bash` and then `cd var/www/SofaScore-Project`
-  6. Run `apt-get update` and `apt-get install php7.4-gd` 
-  7. Run `php bin/console doctrine:schema:update --dump-sql` and copy all SQL queries to your PostgreSQL manager/IDE (e.g. DataGrip)
-  8. Run `php bin/console init:database` and you are all set.
+  6. Run `composer install`
+  7. Run `apt-get update` and `apt-get install php7.4-gd` 
+  8. Run `php bin/console doctrine:schema:update --dump-sql` and copy all SQL queries to your PostgreSQL manager/IDE (e.g. DataGrip)
+  9. Run `php bin/console init:database` and you are all set.
   
   
 #### Next commands are not necessary but are very useful:
