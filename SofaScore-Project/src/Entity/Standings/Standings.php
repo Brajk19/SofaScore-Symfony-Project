@@ -5,6 +5,7 @@ namespace App\Entity\Standings;
 use App\Entity\AbstractPrimaryEntity;
 use App\Entity\Season\Season;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Standings
@@ -16,6 +17,7 @@ class Standings extends AbstractPrimaryEntity
 
     /**
      * @ORM\ManyToOne(targetEntity=Season::class)
+     * @Groups("basic")
      * @var Season
      */
     private Season $season;
@@ -23,6 +25,7 @@ class Standings extends AbstractPrimaryEntity
 
     /**
      * @ORM\Column(type="string")
+     * @Groups("basic")
      * @var string
      */
     private string $type;

@@ -3,6 +3,7 @@
 namespace App\Entity\Score;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Score
@@ -14,6 +15,7 @@ class Score
 
     /**
      * @ORM\Column(type="simple_array")
+     * @Groups("basic")
      * @var array
      */
     private array $score;

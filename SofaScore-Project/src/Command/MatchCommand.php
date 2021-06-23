@@ -7,12 +7,14 @@ namespace App\Command;
 use App\Entity\Category\Category;
 use App\Entity\Competition\Competition;
 use App\Entity\Competitor\Competitor;
+use App\Entity\Match\AbstractMatch;
 use App\Entity\Match\BasketballMatch;
 use App\Entity\Match\FootballMatch;
 use App\Entity\Season\Season;
 use App\Entity\Sport\Sport;
 use App\Entity\Standings\Standings;
 use App\Entity\Standings\StandingsRow;
+use App\Service\Update\StandingsRowUpdate;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,7 +22,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
-class playMatchCommand extends Command
+class MatchCommand extends Command
 {
     private EntityManagerInterface $entityManager;
 
@@ -43,8 +45,9 @@ class playMatchCommand extends Command
     }
 
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
+
         $helper = $this->getHelper("question");
 
 
@@ -95,6 +98,7 @@ class playMatchCommand extends Command
 
         while(true){
 
+
             //finding next unfinished match
             switch ($sport->getName()){
                 case "Football":
@@ -119,6 +123,7 @@ class playMatchCommand extends Command
              * @var FootballMatch|BasketballMatch $match
              */
             $match = $match[0];
+
 
             $homeCompetitor= $match->getHomeCompetitor();
             $awayCompetitor = $match->getAwayCompetitor();
@@ -242,12 +247,8 @@ class playMatchCommand extends Command
                 $standingsRowAway->setWinPercentage($standingsRowAway->getWins() / $standingsRowAway->getMatches());
             }
 
-
-
-
             $this->entityManager->persist($match);
             $this->entityManager->flush();
-
 
             $output->writeln("Match score: {$homeFinalScore}:{$awayFinalScore}");
 
@@ -257,7 +258,6 @@ class playMatchCommand extends Command
                 break;
             }
         }
-
 
         return Command::SUCCESS;
     }

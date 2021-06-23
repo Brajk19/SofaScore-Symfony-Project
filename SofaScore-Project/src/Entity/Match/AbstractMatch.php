@@ -10,6 +10,7 @@ use App\Entity\Score\Score;
 use App\Entity\Season\Season;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Competitor
@@ -29,24 +30,28 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
 
     /**
      * @ORM\ManyToOne(targetEntity=Competitor::class)
+     * @Groups("basic")
      * @var Competitor
      */
     private Competitor $homeCompetitor;
 
     /**
      * @ORM\ManyToOne(targetEntity=Competitor::class)
+     * @Groups("basic")
      * @var Competitor
      */
     private Competitor $awayCompetitor;
 
     /**
      * @ORM\Column(type="datetime");
+     * @Groups("basic")
      * @var DateTime
      */
     private DateTime $startTime;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("basic")
      * @var int
      */
     private int $statusCode;
@@ -65,12 +70,14 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
 
     /**
      * @ORM\Embedded(class="App\Entity\Score\Score")
+     * @Groups("basic")
      * @var Score
      */
     private Score $homeScore;
 
     /**
      * @ORM\Embedded(class="App\Entity\Score\Score")
+     * @Groups("basic")
      * @var Score
      */
     private Score $awayScore;
@@ -78,10 +85,10 @@ abstract class AbstractMatch extends AbstractPrimaryEntity
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @var int|null
-     * null - match not finished,
-     * 1 - home,
-     * 2 - away,
-     * 3 - tie
+     * -1 - match not finished,
+     *  1 - home,
+     *  2 - away,
+     *  3 - tie
      */
     private ?int $winnerCode;
 

@@ -23,6 +23,7 @@ class AbstractPrimaryEntity
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Groups("basic", "extended")
      * @var string|null
      */
     protected ?string $name;

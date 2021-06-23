@@ -2,6 +2,7 @@
 
 namespace App\Repository\Match;
 
+use App\Entity\Competitor\Competitor;
 use App\Entity\Match\AbstractMatch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,6 +20,19 @@ class MatchRepository extends ServiceEntityRepository
         parent::__construct($registry, AbstractMatch::class);
     }
 
+
+    public function findRecentMatches(Competitor $competitor)
+    {
+        return $this->createQueryBuilder('m')
+            ->where('m.homeCompetitor = :val')
+            ->orWhere('m.awayCompetitor = :val')
+            ->andWhere('m.statusCode = 9')
+            ->setParameter('val', $competitor)
+            ->orderBy('m.startTime', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return AbstractMatch[] Returns an array of AbstractMatch objects
     //  */

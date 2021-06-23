@@ -5,51 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d88516-c075-4886-84bd-3e44ebb9b066" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/css/buttons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/css/standings.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/fonts/verdana.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/images/saruman.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/playMatchCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/PickCategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/PickCompetitionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/PickSeasonController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/PickSportController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/SarumanController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/ShowStandingsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/pickCategory.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/pickCompetition.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/pickSeason.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/pickSport.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/saruman.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/standingsBasketball.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/standingsFootball.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/config/packages/sb_redis.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/CreateUsersCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/UpdateStandingsCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/JsonApiRoutesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/DataFixtures/VrhovniSudijaFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/VrhovniSudija.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/VrhovniSudijaRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Security/ApiTokenAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Service/Listener/MatchScoreChangeListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SofaScore-Project/src/Service/Update/StandingsRowUpdate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/.env" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Command/InitSportEventsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/InitSportEventsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Controller/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Command/playMatchCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Command/MatchCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/AbstractPrimaryEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/AbstractPrimaryEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competition/Competition.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Competition/Competition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Country/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Country/Country.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Match/AbstractMatch.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Match/AbstractMatch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Score/Score.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Score/Score.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Season/Season.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Season/Season.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Sport/Sport.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Sport/Sport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Standings/Standings.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Standings/Standings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Standings/StandingsRow.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Entity/Standings/StandingsRow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Season/SeasonRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Season/SeasonRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Standings/StandingsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Standings/StandingsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Standings/StandingsRowRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Standings/StandingsRowRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Exception/MatchFinishedException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Match/MatchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Repository/Match/MatchRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SofaScore-Project/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpdocker/README.html" beforeDir="false" afterPath="$PROJECT_DIR$/phpdocker/README.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpdocker/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/phpdocker/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpdocker/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/phpdocker/nginx/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpdocker/php-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/phpdocker/php-fpm/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +95,11 @@
       <workItem from="1622995856248" duration="47000" />
       <workItem from="1622996061128" duration="18564000" />
       <workItem from="1623090993174" duration="13650000" />
-      <workItem from="1623160706757" duration="6008000" />
+      <workItem from="1623160706757" duration="8167000" />
+      <workItem from="1623683378113" duration="13614000" />
+      <workItem from="1623744901746" duration="5117000" />
+      <workItem from="1624288026755" duration="11274000" />
+      <workItem from="1624353830195" duration="29391000" />
     </task>
     <servers />
   </component>

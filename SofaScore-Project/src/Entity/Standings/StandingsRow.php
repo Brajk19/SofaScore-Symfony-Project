@@ -8,6 +8,7 @@ use App\Entity\AbstractPrimaryEntity;
 use App\Entity\Competitor\Competitor;
 use Doctrine\ORM\Mapping as ORM;
 use SGH\Comparable\Comparable;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Standings
@@ -28,6 +29,7 @@ class StandingsRow extends AbstractPrimaryEntity  implements Comparable
 
     /**
      * @ORM\ManyToOne(targetEntity=Competitor::class)
+     * @Groups("extended")
      * @var Competitor
      */
     private Competitor $competitor;
@@ -40,48 +42,56 @@ class StandingsRow extends AbstractPrimaryEntity  implements Comparable
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("extended")
      * @var int
      */
     private int $matches;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("extended")
      * @var int
      */
     private int $wins;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("extended")
      * @var int
      */
     private int $losses;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("extended")
      * @var int
      */
     private int $scoresFor;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("extended")
      * @var int
      */
     private int $scoresAgainst;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("extended")
      * @var int|null
      */
     private ?int $draws;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("extended")
      * @var int|null
      */
     private ?int $points;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups("extended")
      * @var float|null
      */
     private ?float $winPercentage;

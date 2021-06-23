@@ -6,6 +6,7 @@ use App\Entity\AbstractPrimaryEntity;
 use App\Entity\Competition\Competition;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -17,6 +18,7 @@ class Season extends AbstractPrimaryEntity
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("basic")
      * @var DateTime
      */
     private DateTime $seasonStart;
@@ -24,6 +26,7 @@ class Season extends AbstractPrimaryEntity
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("basic")
      * @var DateTime
      */
     private DateTime $seasonEnd;
