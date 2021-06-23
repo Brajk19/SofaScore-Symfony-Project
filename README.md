@@ -51,7 +51,7 @@ Visit http://localhost:8888/ for graphical user interface.
   
     curl --header "X-AUTH-TOKEN: 60d2679b81b4a" --request GET http://localhost:8888/standings/1
 
-#### Following routes use POST methed and require sending data
+#### Following routes use POST method and require sending data
 
   4. Changing match info:
   
