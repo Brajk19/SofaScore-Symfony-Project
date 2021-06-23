@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1d88516-c075-4886-84bd-3e44ebb9b066" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Controller/JsonApiRoutesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/JsonApiRoutesController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
       <workItem from="1623744901746" duration="5117000" />
       <workItem from="1624288026755" duration="11274000" />
       <workItem from="1624353830195" duration="29391000" />
-      <workItem from="1624435621136" duration="3846000" />
+      <workItem from="1624435621136" duration="5837000" />
     </task>
     <servers />
   </component>
