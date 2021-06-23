@@ -33,6 +33,62 @@ class ShowStandingsController extends AbstractController
      */
     public function showStandingsTotal(string $sportSlug, string $categorySlug, string $competitionSlug, string $seasonSlug): Response
     {
+        $parameters = $this->getParametres($sportSlug, $categorySlug, $competitionSlug, $seasonSlug, "total");
+        $parameters["activeLink"] = "total";
+
+        switch($sportSlug){
+            case "football":
+                return $this->render("standingsFootball.html.twig", $parameters);
+            case "basketball":
+                return $this->render("standingsBasketball.html.twig", $parameters);
+        }
+    }
+
+    /**
+     * @Route("/home", name="standingsHome")
+     * @param string $sportSlug
+     * @param string $categorySlug
+     * @param string $competitionSlug
+     * @param string $seasonSlug
+     * @return Response
+     */
+    public function showStandingsHome(string $sportSlug, string $categorySlug, string $competitionSlug, string $seasonSlug): Response
+    {
+        $parameters = $this->getParametres($sportSlug, $categorySlug, $competitionSlug, $seasonSlug, "home");
+        $parameters["activeLink"] = "home";
+
+        switch($sportSlug){
+            case "football":
+                return $this->render("standingsFootball.html.twig", $parameters);
+            case "basketball":
+                return $this->render("standingsBasketball.html.twig", $parameters);
+        }
+    }
+
+    /**
+     * @Route("/away", name="standingsAway")
+     * @param string $sportSlug
+     * @param string $categorySlug
+     * @param string $competitionSlug
+     * @param string $seasonSlug
+     * @return Response
+     */
+    public function showStandingsAway(string $sportSlug, string $categorySlug, string $competitionSlug, string $seasonSlug): Response
+    {
+        $parameters = $this->getParametres($sportSlug, $categorySlug, $competitionSlug, $seasonSlug, "away");
+        $parameters["activeLink"] = "away";
+
+        switch($sportSlug){
+            case "football":
+                return $this->render("standingsFootball.html.twig", $parameters);
+            case "basketball":
+                return $this->render("standingsBasketball.html.twig", $parameters);
+        }
+    }
+
+
+    private function getParametres(string $sportSlug, string $categorySlug, string $competitionSlug, string $seasonSlug, string $type): array
+    {
         $sport = $this->getDoctrine()->getRepository(Sport::class)->findOneBy(["slug" => $sportSlug]);
 
         $category = $this->getDoctrine()->getRepository(Category::class)
@@ -45,21 +101,14 @@ class ShowStandingsController extends AbstractController
             "slug" => $seasonSlug]);
 
         $standingsTotal = $this->getDoctrine()->getRepository(Standings::class)->findOneBy(["season" => $season,
-            "type" => "total"]);
+            "type" => $type]);
 
         $rows = $this->getDoctrine()->getRepository(StandingsRow::class)->findBy(["standings" => $standingsTotal]);
 
         SortFunctions::rsort($rows); //StandingsRow implements SGH/Comparable interface
 
 
-        $parameters = ["season" => $season, "rows" => $rows];
-
-        switch($sportSlug){
-            case "football":
-                return $this->render("standingsFootball.html.twig", $parameters);
-            case "basketball":
-                return $this->render("standingsBasketball.html.twig", $parameters);
-        }
+        return ["season" => $season, "rows" => $rows, "sport" => $sport, "category" => $category, "competition" => $competition];
     }
 
 }

@@ -1,0 +1,21 @@
+<div class="row" style="margin-left: 10%; margin-right: 10%">
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="{{ path("standingsTotal", {sportSlug : sport.slug, categorySlug: category.slug,
+            competitionSlug: competition.slug, seasonSlug: season.slug}) }}" class="btn btn-sm animated-button gibson-two
+                {% if (activeLink == "total") %}
+                    link-active
+                {% endif %}">Total</a> </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="{{ path("standingsHome", {sportSlug : sport.slug, categorySlug: category.slug,
+            competitionSlug: competition.slug, seasonSlug: season.slug}) }}" class="btn btn-sm animated-button gibson-two
+                {% if (activeLink == "home") %}
+                    link-active
+                {% endif %}">Home</a> </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="{{ path("standingsAway", {sportSlug : sport.slug, categorySlug: category.slug,
+            competitionSlug: competition.slug, seasonSlug: season.slug}) }}" class="btn btn-sm animated-button gibson-two
+                {% if (activeLink == "away") %}
+                    link-active
+                {% endif %}">Away</a> </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="http://localhost:8888" class="btn btn-sm animated-button gibson-two">Main Page</a> </div>
+</div>

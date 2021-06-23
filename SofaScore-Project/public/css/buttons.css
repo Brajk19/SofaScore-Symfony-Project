@@ -240,6 +240,8 @@ a.animated-button.gibson-one:hover:after {
     opacity: 1;
     color: #FFF;
 }
+
+
 a.animated-button.gibson-two {
     border: 2px solid #65b37a;
     color: #FFF;
@@ -259,6 +261,11 @@ a.animated-button.gibson-two:hover:after {
     opacity: 1;
     color: #FFF;
 }
+
+.link-active {
+    background-color: rgba(101,179,122,0.2);
+}
+
 a.animated-button.gibson-three {
     border: 2px solid #65b37a;
     color: #FFF;
