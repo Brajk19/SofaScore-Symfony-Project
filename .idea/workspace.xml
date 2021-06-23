@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d88516-c075-4886-84bd-3e44ebb9b066" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/public/saruman_9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SofaScore-Project/templates/standingsTypeBar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/public/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/public/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/src/Controller/ShowStandingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/src/Controller/ShowStandingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SofaScore-Project/templates/standingsFootball.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SofaScore-Project/templates/standingsFootball.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +73,7 @@
       <workItem from="1623744901746" duration="5117000" />
       <workItem from="1624288026755" duration="11274000" />
       <workItem from="1624353830195" duration="29391000" />
-      <workItem from="1624435621136" duration="2962000" />
+      <workItem from="1624435621136" duration="3846000" />
     </task>
     <servers />
   </component>
